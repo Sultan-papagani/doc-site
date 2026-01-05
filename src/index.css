@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: Inter, system-ui, sans-serif;
+  --color-bg-main: var(--bg-main);
+  --color-bg-sidebar: var(--bg-sidebar);
+  --color-bg-header: var(--bg-header);
+  --color-border-main: var(--border-main);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+}
+
+:root {
+  /* Default Colors (Will be overridden by JS) */
+  --accent: #059669; 
+  --accent-dim: rgba(5, 150, 105, 0.15);
+
+  /* Default Light Theme */
+  --bg-main: #ffffff;
+  --bg-sidebar: #f9fafb;
+  --bg-header: #f9fafb;
+  --border-main: #e5e7eb;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+}
+
+/* --- THEMES --- */
+
+[data-theme="github"] {
+  --bg-main: #0d1117;
+  --bg-sidebar: #010409;
+  --bg-header: #010409;
+  --border-main: #30363d;
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+}
+
+[data-theme="vscode"] {
+  --bg-main: #1e1e1e;
+  --bg-sidebar: #252526;
+  --bg-header: #252526;
+  --border-main: #3e3e42;
+  --text-primary: #d4d4d4;
+  --text-secondary: #858585;
+}
+
+[data-theme="dracula"] {
+  --bg-main: #282a36;
+  --bg-sidebar: #21222c;
+  --bg-header: #191a21;
+  --border-main: #44475a;
+  --text-primary: #f8f8f2;
+  --text-secondary: #6272a4;
+}
+
+[data-theme="solarized"] {
+  --bg-main: #fdf6e3;
+  --bg-sidebar: #eee8d5;
+  --bg-header: #eee8d5;
+  --border-main: #d3cbb7;
+  --text-primary: #586e75;
+  --text-secondary: #93a1a1;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--border-main);
+  border-radius: 4px;
+}
